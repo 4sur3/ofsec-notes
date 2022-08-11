@@ -10,6 +10,10 @@ SMB - Server Message Block
 2. nbtscan -r NETWORK/XX
 3. nmap -v -p 139, 445 --script=smb-os-discovery IP_ADDR
 4. nmap -v -p 139,445 --script=smb-vuln-ms08-067 --script-args=unsafe=1 IP_ADDR
+5. nmap -p 445 --script=smb-enum-shares.nse,smb-enum-users.nse IP_ADDR
+6. smbclient -L //IP_ADDR/
+7. smbget -R smb://APP_DR/SHARED_FOLDER
+
 
 # NFS Enumeration
 
@@ -19,6 +23,8 @@ RPCBind 111/TCP
 2. nmap -sV -p 111 --script=rpcinfo X.X.X.1-254
 3. nmap -p 111 --script nfs* IP_ADDR
 4. Mounting NFS : sudo mount -o nolock IP_ADDR:/home /home/mtn
+5. nmap -p 111 --script=nfs-ls,nfs-statfs,nfs-showmount IP_ADDR
+
 
 # 7.5 SMTP Enumeration
 
